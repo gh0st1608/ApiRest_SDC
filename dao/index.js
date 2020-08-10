@@ -1,4 +1,8 @@
 const dbProducto = require('../db/producto.js'); // db
+//const mensajeFinal = require('../model/mensajeFinal.js');
+//const objMensajeFinal = require('../model/mensajeFinal.js'); //model
+//const db = require('../db/producto.js');
+
 
 
 const daoBot = {};
@@ -10,7 +14,7 @@ daoBot.listarTipoProductos = function(idTipoProducto){
   return new Promise((resolve, reject) => {
     switch (idTipoProducto){
         case 1:
-          var cadenaMsg = 'Tenemos lo siguiente de Carta :';
+          var cadenaMsg = 'Escriba el número de opción para poder ver los platos de carta:';
           dbProducto.queryTiposProductosCarta().then(
             result => {
               Object.keys(result).forEach(function(key){
@@ -22,7 +26,7 @@ daoBot.listarTipoProductos = function(idTipoProducto){
         break;
 
         case 3: 
-          var cadenaMsg = 'Tenemos lo siguiente de Compartir Familiar :';
+          var cadenaMsg = 'Escriba el número de opción para poder ver los platos de Compartir Familiar :';
           dbProducto.queryTiposProductosCompartir().then(
             result => {
               Object.keys(result).forEach(function(key){
@@ -47,24 +51,90 @@ daoBot.listarInfoTemplateTipoPlato = function(objMensaje){
           console.log('-------dao-------')
           console.log(result);
           console.log('----------------')
+        //Object.keys(result).forEach(function(key){
           resolve(result);
         })
+        //resolve(result);  
 })
 }
 
-
-
 module.exports = daoBot;
+/*
+daoBot.listarProductosCarta = function(param1){
+  var cadenaMsg = '';
+  var tipoPlato = '';
+  var cadenaList = '\n';
+  return new Promise((resolve, reject) => {
+    dbProducto.promesaProductosCarta(param1).then(
+      result => {
+        Object.keys(result).forEach(function(key){
+          tipoPlato = result[key].nombre_grupo_producto;
+          cadenaList = cadenaList + String(parseInt(key) + 1) + '.-' + result[key].nombre_producto + '\n'
+        })
+        cadenaMsg = 'Nuestro repertorio de ' + tipoPlato + ' es el siguiente: \n';
+        cadenaMsg = cadenaMsg + cadenaList;
+        resolve(cadenaMsg);
+  })  
+})
+}
+*/
 
 
 
 
+/*
+
+
+daoBot.listarTipoProductosCarta = function(senderID){
+  console.log('entro a listar TipoProductoCarta');
+  mensajeRespuesta = 'Tenemos las siguientes tipos de platos Carta \n';
+  
+  dbProducto.promesaGrupoProducto2().then(
+    //{ nombre_grupo_producto: 'Tiraditos' }
+    function(result){
+      mensajeFinal.respuestaTexto = result[1].nombre_grupo_producto;
+      //console.log(objMensajeFinal.respuestaTexto);
+      //console.log('-------------');
+    }
+    
+
+    
+        //i=0;
+        //Object.keys(result).forEach(function(key){
+        //console.log(result[i].nombre_grupo_producto);
+        //var grupoproducto = result[1].nombre_grupo_producto;
+        //mensaje.mensajeTexto = mensajeRespuesta;
+        //i = i + 1;
+        //console.log(grupoproducto);
+        
+        //})
+        //console.log(grupoproducto);
+        //Object.keys(result);   ---> ['0',  '1',  '2',  '3','4',  '5',  '6',  '7','8',  '9',  '10', '11','12', '13']
+  )
+
+  mensajeFinal.senderID = senderID;
+}
+
+*/
 
 
 
 
 //let serialize = require('./serializer') // serializer custom to db
 
+//console.log(dbProducto.rowsProducto);
+/*
+const daoBot = {};
+daoBot.listarProductosMenu = function(){
+  console.log('entro al dao');
+  console.log(dbProducto.promesa1());
+  //return Promise.resolve();
+}
+  */
+
+
+
+//console.log(dbProducto.promesa1());
 
 
 

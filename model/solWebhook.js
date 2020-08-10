@@ -1,15 +1,11 @@
 class SolicitudWebhook {
 
-    constructor(textoSolicitud,tipoIntencion,tipoRespuesta,tipoParametro,valorParametro){
+    constructor(textoSolicitud,tipoIntencion,tipoRespuesta){
       //this.tipoEvento = tipoEvento;
       this.textoSolicitud = textoSolicitud;
       this.tipoIntencion = tipoIntencion;
       this.tipoRespuesta = tipoRespuesta;
-      this.tipoParametro = tipoParametro;
-      this.valorParametro = valorParametro;
     }
-
-
 
   }
   

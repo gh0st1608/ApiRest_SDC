@@ -6,33 +6,21 @@ var msjBienvenida = 'Gracias por comunicarte con SABORES DE CASMA.\n' +
 'Escriba el numero de la opcion que necesite para poder atenderlo.\n' +
 '1. Ver Carta\n' +
 '2. Realizar Pedido\n' +
-'3. Consultar Pedido\n' +
 'Gracias por su preferencia'
 
-envioPdf = 'En este link podra ver la carta oficial en pdf de sabores de casma ' + 'https://url2.cl/fdZ4B \n' +
-'O si desea puede consultarlo de manera facil y sencilla dandole click a nuestros botones (carta - compartir) \n' +
+envioPdf = 'Click aquì --> ' + 'https://url2.cl/plcm8 \n' +
+'para poder ver nuestra Carta Oficial' + '\n' + 
+'Tambien puede Consultar de manera facil y sencilla \n' +
 'en nuestra inbox de facebook messenger --> m.me/1685945551714503' + '\n' +
 'Gracias por su preferencia'
 
-strRealizarPedido = 'Para poder registrar su pedido por favor necesitamos que llene los siguiente parametros\n' + 
-'en el siguiente link --> ' + 'saboresdecasma.com/form' + '\n' +
-'---------EJEMPLO-------------' + '\n' +
-'EJEMPLO PRACTICO\n'+
-'Nombre: User \n' +
-'Fecha: 18/07/2020 13:00:00\n' +
-'Hora: 21:00\n' +
-'Producto: Arroz Chaufa\n' +
-'Direccion: Jose Leyan 502\n' +
-'----------------------------' + '\n' +
-'Si logro realizar su pedido con exito escriba la palabra' + '\n' + 
-'--> Listo <--' + '\n' + 
+strRealizarPedido = 'Para poder realizar su pedido por favor registrelo en nuestro sistema \n' + 
+'en el siguiente link --> ' + '\n' +
+'saboresdecasma.com/form' + '\n' +
+'Si logro realizar su pedido con exito, puede verlo en ' + '\n' + 
+'saboresdecasma.com/pedidos'  + '\n' + 
 'Gracias por su Preferencia'
 
-strConsultaPedido = 'Para poder consultar su pedido solo escriba\n' +
-'Consulta <numCelular>\n' +
-'------Ejemplo Practico--------\n' +
-'Consulta 947393463\n' +
-'...............................'
 
 validadorWsp.asignarRespuesta = function(objSolicitud){
     return new Promise ((resolve,reject)=>{
@@ -73,6 +61,7 @@ validadorWsp.asignarRespuesta = function(objSolicitud){
                     resolve(objRespuesta);
                     })
                     break;
+		/*
                 case '3':
                     objRespuesta.mensajeText().then(
                     data=>{
@@ -83,6 +72,7 @@ validadorWsp.asignarRespuesta = function(objSolicitud){
                     resolve(objRespuesta);
                     })
                     break;
+		*/
             }
         }
 

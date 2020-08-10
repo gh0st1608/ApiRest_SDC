@@ -1,0 +1,25 @@
+<%- include('partials/header'); -%>
+
+
+<div class="container">
+  <div class="form__top">
+    <h2>Registro <span>Pedido</span></h2>
+  </div>		
+  <form action="/save" method="POST" class="form__reg" >
+          <input class="input" name="nombre" type="text" placeholder="&#128100;  Nombre" required autofocus>
+          <!--<input class="input" name="fechaEntrega" type="text" placeholder="&#8986;  Fecha Entrega" required>-->
+          <label>Fecha deseada:</label>
+          <input type="date" name="fecha" min="2020-07-01" max="2020-12-30" step="1" />
+	        <label>Hora deseada:</label>
+          <input type="time" name="hora" min="1:00" max="24:00" />
+          <input class="input" name="telefono" type="text" placeholder="&#128222;  Celular" required>
+          <input class="input" name="productos" type="text" placeholder="&#127835;  Productos" required>
+          <input class="input" name="direccion" type="text" placeholder="&#128666;  Direccion" required>
+          <div class="btn__form">
+            <input class="btn__submit" type="submit" value="REGISTRAR">
+            <input class="btn__reset" type="reset" value="LIMPIAR">	
+          </div>
+  </form>
+</div>
+
+<%- include('partials/footer'); -%>

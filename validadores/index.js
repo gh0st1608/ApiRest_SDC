@@ -51,7 +51,7 @@ validadorBot.limpiarObjetoMensaje = function(objMensaje){
 }
 
 validadorBot.direccionarFlujo = function(objMensaje){
-  //console.log('entro a direccionar flujo');
+  console.log('entro a direccionar flujo');
     return new Promise((resolve,reject)=>{
       //console.log(objMensaje.postPayload);
       if (objMensaje.textoInicial === '' || typeof objMensaje.textoInicial === 'undefined'){
@@ -89,13 +89,14 @@ validadorBot.obtenerIdPostback = function(objMensaje){
   })
 }
 
+
 validadorBot.obtenerTiposProductoMP= function(objMensajeMod){
   mensajeRespuesta = '';
   console.log(objMensajeMod.postPayload);
   return new Promise((resolve,reject) => {
   switch (objMensajeMod.postPayload){
     case 0:
-      mensajeRespuesta = 'Buenas tardes, mediante este bot de autoconsulta puede consultar nuestro repertorio de comidas. Gracias por su preferencia \n';
+      mensajeRespuesta = 'Buenas tardes estimado cliente,'+ '\n' + 'haga click en el ' + '\n' + 'link de abajo' + '\n' + 'https://cutt.ly/fdNGxOG' + '\n' + ' para poder atenderlo por whatsapp.' + '\n' + 'Gracias por su preferencia' ;
       resolve(mensajeRespuesta);
       break;
 
@@ -171,7 +172,8 @@ validadorBot.obtenerTipoRespuesta = function(objMensajeFiltrado){
          });
          break;
       case 3: //escribio cualquier cosa menos las opciones
-          mensajeRespuesta = 'Buenas tardes, para atender su consulta haga click en alguno de nuestros servicios.';
+      //https://cutt.ly/fdNGxOG
+          mensajeRespuesta = 'Buenas tardes estimado cliente,'+ '\n' + 'haga click en el ' + '\n' + 'link de abajo' + '\n' + 'https://cutt.ly/fdNGxOG' + '\n' + ' para poder atenderlo por whatsapp.' + '\n' + 'Gracias por su preferencia' ;
           console.log('intencion tipo 3');
           resolve(mensajeRespuesta); 
           break;
@@ -283,18 +285,44 @@ validadorBot.obtenerMensajeFinal = function(senderID,mensajeRespuesta,tipoRespue
       }
     }) 
 }
+/*
+validadorBot.enviarMensajeTemplate = (recipientId) => {
+  var messageData = {
+      recipient : {
+        id: recipientId
+      },
+      message: {
+        attachment: {
+          type: "template",
+          payload: {
+            template_type: "generic",
+            elements: [elementTemplate()]
+          }
+        }
+      }
+  };
+  return messageData;
+}
+*/
 
-
-
+  //console.log(dataAccess.listarProductosMenu()); //dao
 
 
 module.exports = validadorBot; // or whatever you want to assign it to
 
 
 
-
-
 /*
+function elementTemplate(){
+return {
+  title : "Pedido",
+  subtitle: "Delivery",
+  item_url : "www.saboresdecasma.com",
+  image_url : "https://cutt.ly/Cygf897",
+  buttons: [buttonTemplate()],
+}
+}
+
 function buttonTemplate(){
 return {
   type: "web_url",

@@ -1,0 +1,32 @@
+<%- include('partials/header2'); -%>
+
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-md-7">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr class="table-info">
+              <td>n°</td>
+              <td>Titular</td>
+              <td>Entrega</td>
+              <td>Productos</td>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (data) { %>
+              <% for(var i = 0; i < data.length; i++) { %>
+                <tr>
+                  <td><%= (i + 1) %></td>
+                  <td><%= data[i].titular_pedido %></td>
+                  <td><%= data[i].fecha_entrega %></td>
+                  <td><%= data[i].productos %></td>
+                </tr>
+              <% } %>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+</div>
+
+<%- include('partials/footer'); -%>

@@ -5,6 +5,8 @@ var sqlInsertarPedido ='INSERT INTO pedido (titular_pedido,fecha_entrega,telefon
 
 var sqlConsultarPedido = 'SELECT titular_pedido,fecha_entrega,productos,direccion FROM pedido WHERE telefono = ';
 
+var sqlListarPedido = 'SELECT idPedido,titular_pedido,fecha_entrega,productos FROM pedido'
+
 
 
 db.guardarPedidoWsp = function(nombre,fechaEntrega,telefono,productos,direccion){
@@ -32,6 +34,16 @@ db.consultarPedidoWsp = function(telefono){
             resolve(data); 
           })
     })
+}
+
+db.listarPedidoWsp = function(){
+  return new Promise((resolve,reject) =>{
+  database.query(sqlListarPedido)
+        .then( data => {
+          console.log(data);
+            resolve(data); 
+          })
+        })
 }
 
 module.exports = db

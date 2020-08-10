@@ -2,12 +2,16 @@
 
 arrayOpcionesMenuPersistente = new Array(2);
 arrayOpcionesCarta = new Array();
-arrayOpcionesMenu = new Array();
+//arrayOpcionesMenu = new Array();
 arrayOpcionesTemplate = new Array();
 
 
 
 var template_JSON = new Object();
+var yourNumber = "+56998725080"
+var yourMessage = "Mucho gusto Sabores de Casma, Deseo un pedido"
+
+
 
 function listarOpcionesMenuPersistente(){
   arrayOpcionesMenuPersistente[0] = 'E'; //indice 0
@@ -25,11 +29,13 @@ function listarOpcionesCarta(){
   }
 }
 
+/*
 function listarOpcionesMenu(){
     arrayOpcionesMenu[0] = '1. Menu Clasico';
     arrayOpcionesMenu[1] = '2. Menu Ejecutivo';
     arrayOpcionesMenu[2] = '3. Menu Marino';
 }
+*/
 
 function listarElementosTemplate(){
   for(j=0;j<20;j++){
@@ -37,15 +43,29 @@ function listarElementosTemplate(){
   }
 }
 
+/*
 function listarBotonesxTemplate(){
-
 }
+
+*/
+
+function linkWsp(number, message) {
+  var url = 'https://api.whatsapp.com/send?phone=' 
+     + number 
+     + '&text=' 
+     + encodeURIComponent(message)
+
+  return url
+}
+
 
 
 listarOpcionesMenuPersistente();
 listarOpcionesCarta();
-listarOpcionesMenu();
+//listarOpcionesMenu();
 listarElementosTemplate();
+var link = linkWsp(yourNumber,yourMessage);
+
 
 /*
 function listarOpcionesMenu(){
@@ -76,4 +96,5 @@ function elementTemplate(){
 */
 module.exports.arrayOpcionesMenuPersistente = arrayOpcionesMenuPersistente;
 module.exports.arrayOpcionesTemplate=arrayOpcionesTemplate;
+module.exports.link = link;
 //module.exports.arrayOpcionesMenu = arrayOpcionesMenu;
